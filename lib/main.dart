@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:to_do_app/bloc/client_cubit.dart';
+import 'core/localizations.dart';
 import 'core/routes.dart';
 import 'core/themes.dart';
 // import 'screen/client/home.dart'; // Make sure to import your HomeScreen file here
@@ -27,6 +29,21 @@ class MyApp extends StatelessWidget {
           themeMode: state.darkMode ? ThemeMode.dark : ThemeMode.light,
           theme: lightTheme,
           darkTheme: darkTheme,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('en', 'US'),
+            Locale('tr', 'TR'),
+            Locale('es', 'ES'),
+            Locale('de', 'DE'),
+            Locale('fr', 'FR'),
+            Locale("it", 'IT'),
+          ],
+          locale: Locale(state.language),
         );
       }),
     );

@@ -44,7 +44,7 @@ class SideBar extends StatelessWidget {
               ),
               const Gap(10),
               ElevatedButton(
-                onPressed: () => "",
+                onPressed: () => GoRouter.of(context).push("/language"),
                 child: const Text("Languages"),
               ),
             ],
