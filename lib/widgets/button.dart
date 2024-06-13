@@ -17,7 +17,10 @@ class MyButton extends StatelessWidget {
     return IconButton(
       onPressed: onPressed,
       icon: Row(
-        children: [Text(text), Icon(icon)],
+        children: [
+          Text(text),
+          Icon(icon),
+        ],
       ),
     );
   }
