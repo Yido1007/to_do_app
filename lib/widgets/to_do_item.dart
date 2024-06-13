@@ -29,7 +29,11 @@ class ToDoItem extends StatelessWidget {
                 value: taskCompleted,
                 onChanged: onChanged,
               ),
-              Text(taskName),
+              Text(
+                taskName,
+                style: TextStyle(
+                    decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none),
+              ),
             ],
           ),
         ),
