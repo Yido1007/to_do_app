@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       db.loadData();
     }
-    setState(() {}); // Refresh the state after Hive initialization
+    setState(() {});
   }
 
   final _controller = TextEditingController();

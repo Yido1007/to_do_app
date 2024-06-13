@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ClientCubit(ClientState(language: "en", darkMode: false)),
+      create: (context) => ClientCubit(ClientState(language: "tr", darkMode: false)),
       child: BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
         return MaterialApp.router(
           routerConfig: routes,
@@ -38,10 +38,6 @@ class MyApp extends StatelessWidget {
           supportedLocales: const [
             Locale('en', 'US'),
             Locale('tr', 'TR'),
-            Locale('es', 'ES'),
-            Locale('de', 'DE'),
-            Locale('fr', 'FR'),
-            Locale("it", 'IT'),
           ],
           locale: Locale(state.language),
         );
