@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:to_do_app/widgets/button.dart';
 
-class AlertBox extends StatelessWidget {
+class AlertBox extends StatefulWidget {
   final VoidCallback save;
   final VoidCallback delete;
   final TextEditingController controller;
@@ -15,27 +15,33 @@ class AlertBox extends StatelessWidget {
   });
 
   @override
+  State<AlertBox> createState() => _AlertBoxState();
+}
+
+class _AlertBoxState extends State<AlertBox> {
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 120,
       child: Column(
         children: [
           TextField(
-            controller: controller,
+            controller: widget.controller,
           ),
+          const Gap(25),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MyButton(
                 text: 'Save',
                 icon: (Icons.attach_file),
-                onPressed: save,
+                onPressed: widget.save,
               ),
-              const Gap(5),
+              const Gap(25),
               MyButton(
-                text: 'Delete',
-                icon: (Icons.delete),
-                onPressed: delete,
+                text: 'Cancel',
+                icon: (Icons.cancel_outlined),
+                onPressed: widget.delete,
               ),
             ],
           )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class MyButton extends StatelessWidget {
   final String text;
@@ -19,6 +20,7 @@ class MyButton extends StatelessWidget {
       icon: Row(
         children: [
           Text(text),
+          const Gap(5),
           Icon(icon),
         ],
       ),

@@ -26,13 +26,14 @@ class ToDoItem extends StatelessWidget {
             SlidableAction(
               onPressed: deleteFunc,
               icon: Icons.delete,
-              backgroundColor: Colors.red,
+              borderRadius: BorderRadius.circular(2),
+              backgroundColor: Theme.of(context).colorScheme.error,
             ),
           ],
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: const BorderRadius.all(Radius.circular(14)),
           ),
           child: Padding(
@@ -41,6 +42,7 @@ class ToDoItem extends StatelessWidget {
               children: [
                 Checkbox(
                   value: taskCompleted,
+                  activeColor: Theme.of(context).colorScheme.error,
                   onChanged: onChanged,
                 ),
                 Text(
