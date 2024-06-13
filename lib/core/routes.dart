@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:to_do_app/screen/client/home.dart';
+import 'package:to_do_app/screen/core/theme.dart';
 // import 'package:to_do_app/screen/static/settings.dart';
 
 final routes = GoRouter(
@@ -9,9 +10,9 @@ final routes = GoRouter(
       path: '/',
       builder: (context, state) => const HomeScreen(),
     ),
-    // GoRoute(
-    //   path: 'settings',
-    //   builder: (context, state) => const SettingScreen(),
-    // ),
+    GoRoute(
+      path: '/themes',
+      builder: (context, state) => const ThemeScreen(),
+    ),
   ],
 );
