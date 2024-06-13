@@ -31,9 +31,9 @@ class ToDoItem extends StatelessWidget {
           ],
         ),
         child: Container(
-          decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 4, 243, 191),
-            borderRadius: BorderRadius.all(Radius.circular(14)),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
+            borderRadius: const BorderRadius.all(Radius.circular(14)),
           ),
           child: Padding(
             padding: const EdgeInsets.all(14.0),

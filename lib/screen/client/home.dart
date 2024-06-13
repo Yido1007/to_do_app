@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:to_do_app/bloc/client_cubit.dart';
 import 'package:to_do_app/core/database.dart';
 import '../../widgets/alertbox.dart';
 import '../../widgets/to_do_item.dart';
@@ -14,12 +16,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late Box _storage;
   ToDoDatabase db = ToDoDatabase();
-
-  @override
-  void initState() {
-    super.initState();
-    _initializeHive();
-  }
 
   void _initializeHive() async {
     _storage = Hive.box("storage");
@@ -72,31 +68,42 @@ class _HomeScreenState extends State<HomeScreen> {
     db.updateData();
   }
 
+  late ClientCubit clientCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeHive();
+    clientCubit = context.read<ClientCubit>();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("To Do"),
-        centerTitle: true,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: createNewTask,
-        child: const Icon(Icons.add),
-      ),
-      // ignore: unnecessary_null_comparison
-      body: _storage == null
-          ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: db.toDoList.length,
-              itemBuilder: (context, index) {
-                return ToDoItem(
-                  taskName: db.toDoList[index][0],
-                  taskCompleted: db.toDoList[index][1],
-                  onChanged: (value) => checkBoxChanged(value, index),
-                  deleteFunc: (context) => deleteTask(index),
-                );
-              },
-            ),
-    );
+    return BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text("To Do"),
+          centerTitle: true,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: createNewTask,
+          child: const Icon(Icons.add),
+        ),
+        // ignore: unnecessary_null_comparison
+        body: _storage == null
+            ? const Center(child: CircularProgressIndicator())
+            : ListView.builder(
+                itemCount: db.toDoList.length,
+                itemBuilder: (context, index) {
+                  return ToDoItem(
+                    taskName: db.toDoList[index][0],
+                    taskCompleted: db.toDoList[index][1],
+                    onChanged: (value) => checkBoxChanged(value, index),
+                    deleteFunc: (context) => deleteTask(index),
+                  );
+                },
+              ),
+      );
+    });
   }
 }

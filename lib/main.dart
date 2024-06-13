@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'screen/client/home.dart'; // Make sure to import your HomeScreen file here
+import 'package:to_do_app/bloc/client_cubit.dart';
+import 'core/routes.dart';
+import 'core/themes.dart';
+// import 'screen/client/home.dart'; // Make sure to import your HomeScreen file here
 
 void main() async {
   await Hive.initFlutter();
@@ -14,10 +18,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      
-      home: HomeScreen(),
+    return BlocProvider(
+      create: (context) => ClientCubit(ClientState(language: "en", darkMode: false)),
+      child: BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
+        return MaterialApp.router(
+          routerConfig: routes,
+          debugShowCheckedModeBanner: false,
+          themeMode: state.darkMode ? ThemeMode.dark : ThemeMode.light,
+          theme: lightTheme,
+          darkTheme: darkTheme,
+        );
+      }),
     );
   }
 }
