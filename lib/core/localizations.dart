@@ -7,15 +7,14 @@ class AppLocalizations {
   late Locale locale;
   late Map<String, String> _valueText;
 
-  static const List<String> _supportedLanguages = ['en', 'tr', "es", "fr", "de", "it"];
+  static const List<String> _supportedLanguages = [
+    'en',
+    'tr',
+  ];
 
   static const Map<String, String> _supportedLanguages2 = {
     'en': "English",
     'tr': "Türkçe",
-    "es": "Español",
-    "fr": "Français",
-    "de": "Deutsch",
-    "it": "Italiano"
   };
 
   AppLocalizations(this.locale);
@@ -55,7 +54,10 @@ class AppLocalizations {
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
-  static const List<String> _supportedLanguages = ['en', 'tr', "es", "fr", "de", "it"];
+  static const List<String> _supportedLanguages = [
+    'en',
+    'tr',
+  ];
 
   const AppLocalizationsDelegate();
 
