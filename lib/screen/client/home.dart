@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:to_do_app/bloc/client_cubit.dart';
 import 'package:to_do_app/core/database.dart';
 import '../../widgets/alertbox.dart';
-import '../../widgets/drawer.dart';
+// import '../../widgets/drawer.dart';
 import '../../widgets/to_do_item.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -82,11 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
       return Scaffold(
-        drawer: const SideBar(),
-        appBar: AppBar(
-          title: const Text("To Do"),
-          centerTitle: true,
-        ),
+        // drawer: const SideBar(),
         floatingActionButton: FloatingActionButton(
           onPressed: createNewTask,
           child: const Icon(Icons.add),

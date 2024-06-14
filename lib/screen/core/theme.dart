@@ -44,15 +44,6 @@ class _ThemeScreenState extends State<ThemeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "appearance",
-          style: TextStyle(
-            fontSize: 20,
-          ),
-        ),
-        centerTitle: true,
-      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

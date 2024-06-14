@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:to_do_app/screen/client/home.dart';
 import 'package:to_do_app/screen/client/languages.dart';
 import 'package:to_do_app/screen/core/theme.dart';
+import 'package:to_do_app/widgets/hidden_drawer.dart';
 // import 'package:to_do_app/screen/static/settings.dart';
 
 final routes = GoRouter(
@@ -9,7 +9,7 @@ final routes = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const HomeScreen(),
+      builder: (context, state) => const HiddenDrawer(),
     ),
     GoRoute(
       path: '/themes',

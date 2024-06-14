@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
 import '../../bloc/client_cubit.dart';
-import '../../core/localizations.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
@@ -24,13 +23,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
       return Scaffold(
-        appBar: AppBar(
-          // language screen title
-          title: Text(
-            AppLocalizations.of(context).getTranslate("language"),
-          ),
-          centerTitle: true,
-        ),
         body: SafeArea(
           child: Column(
             children: [
