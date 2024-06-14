@@ -17,7 +17,6 @@ class HiddenDrawer extends StatefulWidget {
 
 class _HiddenDrawerState extends State<HiddenDrawer> {
   late ClientCubit clientCubit;
-  late BuildContext context;
   final mySelectedStyle = const TextStyle(fontSize: 22);
 
   @override
@@ -34,8 +33,10 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
           ScreenHiddenDrawer(
             ItemHiddenMenu(
               name: "To Do",
-              baseStyle:
-                  TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.inverseSurface),
+              baseStyle: TextStyle(
+                fontSize: 15,
+                color: Theme.of(context).colorScheme.inverseSurface,
+              ),
               selectedStyle: mySelectedStyle,
             ),
             const HomeScreen(),
