@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_app/core/localizations.dart';
 
 import '../../bloc/client_cubit.dart';
 
@@ -71,7 +72,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                     children: [
                       themeModeItem(
                         context,
-                        "light",
+                        AppLocalizations.of(context).getTranslate("light"),
                         !isDarkMode, // Ters çevirdik
                         () {
                           setState(() {
@@ -84,7 +85,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                       ),
                       themeModeItem(
                         context,
-                        "dark",
+                        AppLocalizations.of(context).getTranslate("dark"),
                         isDarkMode, // Değişiklik yok
                         () {
                           setState(() {
@@ -124,9 +125,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
             ),
           ),
           const Gap(5),
-          Text(
-            "title",
-          ),
+          Text(title),
           const Gap(5),
           Checkbox(
             value: isChecked,

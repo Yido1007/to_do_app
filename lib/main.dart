@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ClientCubit(ClientState(language: "tr", darkMode: false)),
+      create: (context) => ClientCubit(ClientState(language: "tr", darkMode: true)),
       child: BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
         return MaterialApp.router(
           routerConfig: routes,

@@ -1,3 +1,8 @@
 {
-    "language":"dil"
+    "language":"Diller",
+    "theme":"Temalar",
+    "save":"Kaydet",
+    "cancel":"İptal",
+    "light":"Açık",
+    "dark":"Koyu"
 }
