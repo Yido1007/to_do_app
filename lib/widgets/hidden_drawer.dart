@@ -68,20 +68,11 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
         slidePercent: 40,
         enableScaleAnimation: true,
         enableCornerAnimation: true,
-        enableShadowItensMenu: true,
         contentCornerRadius: 20,
-        backgroundColorAppBar: Theme.of(context).colorScheme.tertiaryContainer,
-        backgroundMenu: const DecorationImage(
-          image: ExactAssetImage('assets/images/to-do.png'),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).colorScheme.secondary,
-            offset: const Offset(0.0, 5.0),
-            blurRadius: 10,
-            spreadRadius: 8.5,
-          ),
-        ],
+        isTitleCentered: true,
+        withAutoTittleName: true,
+        isDraggable: true,
+        backgroundColorAppBar: Theme.of(context).colorScheme.secondaryContainer,
       );
     });
   }
