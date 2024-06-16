@@ -32,23 +32,25 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
         screens: [
           ScreenHiddenDrawer(
             ItemHiddenMenu(
+              name: AppLocalizations.of(context).getTranslate("theme"),
+              baseStyle:
+                  TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.inverseSurface),
+              selectedStyle: mySelectedStyle,
+              colorLineSelected: Theme.of(context).colorScheme.inverseSurface,
+            ),
+            const ThemeScreen(),
+          ),
+          ScreenHiddenDrawer(
+            ItemHiddenMenu(
               name: "To Do",
               baseStyle: TextStyle(
                 fontSize: 15,
                 color: Theme.of(context).colorScheme.inverseSurface,
               ),
               selectedStyle: mySelectedStyle,
+              colorLineSelected: Theme.of(context).colorScheme.inverseSurface,
             ),
             const HomeScreen(),
-          ),
-          ScreenHiddenDrawer(
-            ItemHiddenMenu(
-              name: AppLocalizations.of(context).getTranslate("theme"),
-              baseStyle:
-                  TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.inverseSurface),
-              selectedStyle: mySelectedStyle,
-            ),
-            const ThemeScreen(),
           ),
           ScreenHiddenDrawer(
             ItemHiddenMenu(
@@ -56,6 +58,7 @@ class _HiddenDrawerState extends State<HiddenDrawer> {
               baseStyle:
                   TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.inverseSurface),
               selectedStyle: mySelectedStyle,
+              colorLineSelected: Theme.of(context).colorScheme.inverseSurface,
             ),
             const LanguageScreen(),
           ),

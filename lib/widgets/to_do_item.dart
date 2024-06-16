@@ -33,7 +33,7 @@ class ToDoItem extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.tertiaryContainer,
             borderRadius: const BorderRadius.all(Radius.circular(14)),
           ),
           child: Padding(
@@ -42,14 +42,14 @@ class ToDoItem extends StatelessWidget {
               children: [
                 Checkbox(
                   value: taskCompleted,
-                  activeColor: Theme.of(context).colorScheme.error,
+                  // activeColor: Theme.of(context).colorScheme.error,
                   onChanged: onChanged,
                 ),
                 Text(
                   taskName,
                   style: TextStyle(
-                    decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none,
-                  ),
+                      decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none,
+                      color: Theme.of(context).colorScheme.primary),
                 ),
               ],
             ),
