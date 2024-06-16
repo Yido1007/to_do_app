@@ -18,7 +18,7 @@ class ToDoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(14.0),
+      padding: const EdgeInsets.only(top: 14.0, right: 14, left: 14),
       child: Slidable(
         endActionPane: ActionPane(
           motion: const StretchMotion(),
@@ -33,7 +33,7 @@ class ToDoItem extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.tertiaryContainer,
+            color: Theme.of(context).colorScheme.secondaryContainer,
             borderRadius: const BorderRadius.all(Radius.circular(14)),
           ),
           child: Padding(
