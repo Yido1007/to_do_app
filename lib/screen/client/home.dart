@@ -28,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
-  final _controller = TextEditingController();
+  final _bodycontroller = TextEditingController();
+  final _titlecontroller = TextEditingController();
 
   // Control Checkbox tap
   void checkBoxChanged(bool? value, int index) {
@@ -44,7 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context) {
         return AlertDialog(
           content: AlertBox(
-            controller: _controller,
+            titleController: _titlecontroller,
+            bodyController: _bodycontroller,
             save: saveNewTask,
             delete: () => Navigator.of(context).pop(),
           ),
@@ -55,8 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void saveNewTask() {
     setState(() {
-      db.toDoList.add([_controller.text, false]);
-      _controller.clear();
+      db.toDoList.add([_bodycontroller.text, false, _titlecontroller.text]);
+      _bodycontroller.clear();
+      _titlecontroller.clear();
     });
     db.updateData();
     Navigator.of(context).pop();
@@ -96,6 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return ToDoItem(
                     taskName: db.toDoList[index][0],
                     taskCompleted: db.toDoList[index][1],
+                    tasktitle: db.toDoList[index][2],
                     onChanged: (value) => checkBoxChanged(value, index),
                     deleteFunc: (context) => deleteTask(index),
                   );

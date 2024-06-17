@@ -8,13 +8,15 @@ import 'package:to_do_app/widgets/button.dart';
 class AlertBox extends StatefulWidget {
   final VoidCallback save;
   final VoidCallback delete;
-  final TextEditingController controller;
+  final TextEditingController bodyController;
+  final TextEditingController titleController;
 
   const AlertBox({
     super.key,
     required this.save,
     required this.delete,
-    required this.controller,
+    required this.bodyController,
+    required this.titleController,
   });
 
   @override
@@ -34,11 +36,15 @@ class _AlertBoxState extends State<AlertBox> {
   Widget build(BuildContext context) {
     return BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
       return SizedBox(
-        height: 120,
+        height: 200,
         child: Column(
           children: [
             TextField(
-              controller: widget.controller,
+              controller: widget.titleController,
+            ),
+            const Gap(15),
+            TextField(
+              controller: widget.bodyController,
             ),
             const Gap(25),
             Row(

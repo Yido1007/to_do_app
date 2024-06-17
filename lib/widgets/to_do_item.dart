@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ToDoItem extends StatelessWidget {
   final String taskName;
+  final String tasktitle;
   final bool taskCompleted;
   final Function(BuildContext)? deleteFunc;
   final Function(bool?)? onChanged;
@@ -13,6 +14,7 @@ class ToDoItem extends StatelessWidget {
     required this.taskCompleted,
     required this.onChanged,
     this.deleteFunc,
+    required this.tasktitle,
   });
 
   @override
@@ -38,18 +40,25 @@ class ToDoItem extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.all(14.0),
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Checkbox(
-                  value: taskCompleted,
-                  // activeColor: Theme.of(context).colorScheme.error,
-                  onChanged: onChanged,
-                ),
-                Text(
-                  taskName,
-                  style: TextStyle(
-                      decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none,
-                      color: Theme.of(context).colorScheme.primary),
+                Text(tasktitle),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: taskCompleted,
+                      // activeColor: Theme.of(context).colorScheme.error,
+                      onChanged: onChanged,
+                    ),
+                    Text(
+                      taskName,
+                      style: TextStyle(
+                          decoration:
+                              taskCompleted ? TextDecoration.lineThrough : TextDecoration.none,
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
+                  ],
                 ),
               ],
             ),
