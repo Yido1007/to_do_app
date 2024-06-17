@@ -43,7 +43,16 @@ class ToDoItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(tasktitle),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    tasktitle,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 18,
+                        color: Theme.of(context).colorScheme.primary),
+                  ),
+                ),
                 Row(
                   children: [
                     Checkbox(
